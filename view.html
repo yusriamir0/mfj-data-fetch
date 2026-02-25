@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MFJ Jobs - Full View</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .stats {
+            font-size: 14px;
+            color: #7f8c8d;
+            background: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e1e4e8;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #586069;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            color: #3498db;
+        }
+
+        th.sort-asc::after {
+            content: " ↑";
+        }
+
+        th.sort-desc::after {
+            content: " ↓";
+        }
+
+        tr:hover {
+            background-color: #fbfcfe;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .job-date {
+            color: #6a737d;
+            font-size: 14px;
+        }
+
+        .job-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .job-link:hover {
+            background-color: #2980b9;
+        }
+
+        #message {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 50px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MFJ Fetched Jobs</h1>
+            <div id="jobStats" class="stats">Loading jobs...</div>
+        </div>
+        <div id="message" style="display:none;"></div>
+        <table id="jobsTable">
+            <thead>
+                <tr>
+                    <th id="th-title">Job Title</th>
+                    <th id="th-date">Date Upload</th>
+                    <th style="cursor: default;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="jobsList">
+                <!-- Jobs will be injected here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="view.js"></script>
+</body>
+
+</html>

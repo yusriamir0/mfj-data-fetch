@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "MFJ Data Fetch",
+  "version": "1.1",
+  "description": "Fetches job titles and URLs from MyFutureJobs and displays them in a table.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://candidates.myfuturejobs.gov.my/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://candidates.myfuturejobs.gov.my/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    }
+  ]
+}
