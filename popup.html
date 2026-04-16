@@ -98,9 +98,26 @@
             text-overflow: ellipsis;
         }
 
+        .job-company {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .job-company img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 2px;
+            background: #f8f9fa;
+        }
+
         .job-date {
             color: #7f8c8d;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .job-link {
@@ -145,6 +162,7 @@
         <table id="jobsTable" style="display:none;">
             <thead>
                 <tr>
+                    <th id="th-company" class="sortable">Company</th>
                     <th id="th-title" class="sortable">Title</th>
                     <th id="th-date" class="sortable">Date Upload</th>
                     <th>Link</th>

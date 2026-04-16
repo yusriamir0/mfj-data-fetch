@@ -8,12 +8,18 @@ function extractJobs() {
         const titleElement = item.querySelector('ngb-highlight[data-test="swipe-vacancySummary-title"]');
         const title = titleElement ? titleElement.innerText.trim() : "Unknown Title";
 
+        const logoElement = item.querySelector('img.vacancy-summary-02__company-logo');
+        const companyLogo = logoElement ? logoElement.src : "";
+
+        const companyNameElement = item.querySelector('ngb-highlight[data-test="swipe-vacancySummary-company--name"]');
+        const companyName = companyNameElement ? companyNameElement.innerText.trim() : "Unknown Company";
+
         const dateElement = item.querySelector('span[data-test="swipe-vacancySummary-company--footer"]');
         const dateUpload = dateElement ? dateElement.innerText.trim() : "Unknown Date";
 
         const url = item.href;
 
-        jobs.push({ title, url, dateUpload });
+        jobs.push({ title, url, dateUpload, companyLogo, companyName });
     });
 
     if (jobs.length > 0) {

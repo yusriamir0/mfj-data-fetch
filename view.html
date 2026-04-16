@@ -91,6 +91,23 @@
             font-size: 16px;
         }
 
+        .job-company {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .job-company img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: #f8f9fa;
+            border: 1px solid #e1e4e8;
+        }
+
         .job-date {
             color: #6a737d;
             font-size: 14px;
@@ -131,6 +148,7 @@
         <table id="jobsTable">
             <thead>
                 <tr>
+                    <th id="th-company">Company</th>
                     <th id="th-title">Job Title</th>
                     <th id="th-date">Date Upload</th>
                     <th style="cursor: default;">Action</th>

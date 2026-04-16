@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const viewTabBtn = document.getElementById('viewTabBtn');
 
     // Sorting headers
+    document.getElementById('th-company').addEventListener('click', () => sortJobs('companyName'));
     document.getElementById('th-title').addEventListener('click', () => sortJobs('title'));
     document.getElementById('th-date').addEventListener('click', () => sortJobs('date'));
 
@@ -82,6 +83,12 @@ function displayJobs(jobs) {
         jobs.forEach(job => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td>
+                    <div class="job-company">
+                        ${job.companyLogo ? `<img src="${job.companyLogo}" alt="">` : ''}
+                        <span>${job.companyName}</span>
+                    </div>
+                </td>
                 <td class="job-title" title="${job.title}">${job.title}</td>
                 <td class="job-date">${job.dateUpload}</td>
                 <td><a href="${job.url}" target="_blank" class="job-link">View</a></td>
@@ -95,16 +102,19 @@ function displayJobs(jobs) {
 }
 
 function sortJobs(key) {
+    const thCompany = document.getElementById('th-company');
     const thTitle = document.getElementById('th-title');
     const thDate = document.getElementById('th-date');
 
     // Toggle direction
-    sortDirection[key] *= -1;
+    sortDirection[key] = sortDirection[key] ? sortDirection[key] * -1 : 1;
 
     // UI Feedback
+    thCompany.className = 'sortable';
     thTitle.className = 'sortable';
     thDate.className = 'sortable';
-    const currentTh = key === 'title' ? thTitle : thDate;
+    
+    const currentTh = key === 'companyName' ? thCompany : (key === 'title' ? thTitle : thDate);
     currentTh.classList.add(sortDirection[key] === 1 ? 'sort-asc' : 'sort-desc');
 
     allJobs.sort((a, b) => {
